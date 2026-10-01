@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Seeds & Pesticides Software | Detailed Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,wght@0,400;0,600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0e2a1f;--bg2:#143629;--card:#183d2e;--ink:#eef4e6;--mute:#a9c1b0;--gold:#f0b43c;--leaf:#8fd46a;--line:#2b5a45;--on:#2a1c00;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f1f5e8;--bg2:#e4ecd6;--card:#fff;--ink:#14301f;--mute:#4d6a58;--gold:#b97a00;--leaf:#2f7d32;--line:#c5d5b8;--on:#fff}}
+:root[data-theme="light"]{--bg:#f1f5e8;--bg2:#e4ecd6;--card:#fff;--ink:#14301f;--mute:#4d6a58;--gold:#b97a00;--leaf:#2f7d32;--line:#c5d5b8;--on:#fff}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "Newsreader",Georgia,serif;overflow-x:hidden}
+body.lock{overflow:hidden}
+h1,h2,h3,.sans,button,summary{font-family:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+section{padding:70px 0}
+h2{font-size:clamp(28px,4.5vw,42px);line-height:1.1;margin:0 0 12px;letter-spacing:-.02em;font-weight:800}
+.lead{color:var(--mute);max-width:62ch;margin:0 0 32px}
+.hero{padding:56px 0 20px;background:radial-gradient(900px 400px at 80% 0,var(--bg2),transparent 70%)}
+.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:end}
+.meta{color:var(--mute);font-size:15px;margin-bottom:18px}
+h1{font-size:clamp(38px,7vw,76px);line-height:.98;letter-spacing:-.035em;margin:0 0 20px;font-weight:800}
+h1 span{color:var(--gold)}
+.hero p{max-width:50ch;color:var(--mute);font-size:19px}
+.field{width:100%;display:block}
+.stem{stroke:var(--leaf);stroke-width:5;fill:none;stroke-linecap:round;stroke-dasharray:300;stroke-dashoffset:300;animation:grow 1.6s cubic-bezier(.3,.7,.2,1) forwards}
+.s2{animation-delay:.5s}.s3{animation-delay:1s}
+.leaf,.bud{transform-box:fill-box;transform:scale(0);animation:pop .7s ease-out forwards}
+.leaf{fill:var(--leaf);transform-origin:0 100%}.bud{fill:var(--gold);transform-origin:center}
+.l1{animation-delay:1.2s}.l2{animation-delay:1.6s}.l3{animation-delay:2.1s}.b1{animation-delay:1.7s}.b2{animation-delay:2.2s}.b3{animation-delay:2.7s}
+.soil{stroke:var(--line);stroke-width:3}.tag{fill:var(--mute);font:600 13px "Bricolage Grotesque",sans-serif}
+@keyframes grow{to{stroke-dashoffset:0}}@keyframes pop{to{transform:scale(1)}}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tier{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px 24px;display:flex;flex-direction:column;position:relative;cursor:pointer;transition:transform .35s,border-color .35s}
+.tier:hover{transform:translateY(-6px);border-color:var(--leaf)}.tier.pop{border:2px solid var(--gold)}
+.badge{position:absolute;top:-13px;left:22px;background:var(--gold);color:var(--on);font:700 13px "Bricolage Grotesque",sans-serif;padding:4px 12px;border-radius:99px}
+.stage{font:600 15px "Bricolage Grotesque",sans-serif;color:var(--leaf)}
+.tier h3{font-size:26px;margin:6px 0 4px;font-weight:800;letter-spacing:-.02em}
+.price{font:800 30px/1.1 "Bricolage Grotesque",sans-serif;margin:14px 0 2px;color:var(--gold)}
+.price small{display:block;font:400 14px "Newsreader",serif;color:var(--mute);margin-top:4px}
+.tier p{color:var(--mute);margin:10px 0 16px;font-size:16px}
+.cnt{margin-top:auto;font:600 14px "Bricolage Grotesque",sans-serif;color:var(--mute);margin-bottom:12px}
+.open{background:var(--gold);color:var(--on);border:0;border-radius:99px;padding:12px 20px;font-weight:700;font-size:16px;cursor:pointer;transition:transform .25s,box-shadow .25s}
+.open:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.bar{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.sw{position:relative;width:52px;height:30px;border-radius:99px;background:var(--line);border:0;cursor:pointer;transition:.3s}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:var(--ink);transition:.3s}
+.sw[aria-pressed=true]{background:var(--leaf)}.sw[aria-pressed=true]::after{left:25px}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:18px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:16px}
+th,td{padding:10px 16px;text-align:center;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{text-align:left}
+thead th{font:700 16px "Bricolage Grotesque",sans-serif;background:var(--bg2)}
+tbody tr:hover{background:var(--bg2)}td.y{color:var(--leaf);font-weight:600}td.n{color:var(--mute)}td.a{color:var(--gold);font-weight:600}
+tr:last-child td{border-bottom:0}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{border:1px solid var(--line);border-radius:99px;padding:5px 13px;font-size:15px;background:var(--card);transition:.25s}
+.chips span:hover{border-color:var(--gold);color:var(--gold)}
+.next{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px}
+.next ul{margin:0;padding-left:20px;color:var(--mute)}
+.cta{display:inline-block;margin-top:20px;background:var(--gold);color:var(--on);font:700 17px "Bricolage Grotesque",sans-serif;padding:13px 24px;border-radius:99px;text-decoration:none}
+footer{padding:36px 0 50px;border-top:1px solid var(--line);color:var(--mute);font-size:15px}footer b{color:var(--ink);font-family:"Bricolage Grotesque",sans-serif}
+/* detail dialog */
+dialog{border:0;padding:0;background:var(--bg);color:var(--ink);width:min(980px,96vw);max-height:92vh;border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,.5);overflow:hidden}
+dialog[open]{display:flex;flex-direction:column;animation:dlg .45s cubic-bezier(.2,.8,.2,1)}
+dialog::backdrop{background:rgba(4,16,10,.75);backdrop-filter:blur(4px)}
+@keyframes dlg{from{opacity:0;transform:translateY(30px) scale(.96)}}
+.dh{padding:22px 26px 0;background:var(--bg2);border-bottom:1px solid var(--line)}
+.dt{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+.dt h3{margin:0;font-size:clamp(24px,4vw,34px);font-weight:800;letter-spacing:-.02em}
+.dp{color:var(--gold);font:700 20px "Bricolage Grotesque",sans-serif;margin-top:2px}
+.x{background:var(--card);color:var(--ink);border:1px solid var(--line);width:40px;height:40px;border-radius:50%;font-size:20px;cursor:pointer;flex:none}
+.tabs{display:flex;gap:6px;margin-top:16px;overflow-x:auto}
+.tabs button{background:none;border:0;color:var(--mute);padding:10px 16px;font-size:16px;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap}
+.tabs button[aria-selected=true]{color:var(--gold);border-color:var(--gold)}
+.db{padding:22px 26px 30px;overflow-y:auto;overscroll-behavior:contain}
+.note{background:var(--card);border-left:3px solid var(--leaf);padding:10px 16px;border-radius:0 12px 12px 0;color:var(--mute);margin:0 0 16px;font-size:16px}
+.tl{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px;color:var(--mute);font-size:15px}
+.tl button{background:none;border:1px solid var(--line);color:var(--ink);border-radius:99px;padding:6px 14px;cursor:pointer;font-weight:600}
+details.sec{background:var(--card);border:1px solid var(--line);border-radius:16px;margin-bottom:10px;overflow:hidden}
+details.sec[open]{border-color:var(--leaf)}
+summary{cursor:pointer;padding:14px 18px;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:10px;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary i{font-style:normal;color:var(--mute);font-weight:600;font-size:14px;white-space:nowrap}
+summary::before{content:"+";color:var(--gold);width:16px;flex:none}details[open]>summary::before{content:"-"}
+summary span{flex:1}
+.it{display:flex;flex-wrap:wrap;gap:8px;padding:2px 18px 18px;animation:op .35s ease-out}
+@keyframes op{from{opacity:0;transform:translateY(-6px)}}
+.it span{background:var(--bg2);border-radius:10px;padding:5px 12px 5px 28px;font-size:15.5px;position:relative}
+.it span::before{content:"";position:absolute;left:10px;top:11px;width:9px;height:5px;border-left:2px solid var(--leaf);border-bottom:2px solid var(--leaf);transform:rotate(-45deg)}
+.suit{margin-top:18px;padding:14px 18px;border:1px dashed var(--gold);border-radius:14px;color:var(--mute);font-size:16px}
+a:focus-visible,button:focus-visible,summary:focus-visible,.tier:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media(max-width:820px){.grid,.tiers,.cols{grid-template-columns:1fr}section{padding:50px 0}.db,.dh{padding-left:16px;padding-right:16px}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap grid">
+<div><div class="meta sans">Prepared for Divyanshi Jain by CodePranetra on 01 October 2026</div>
+<h1>Every bag of seed, <span>accounted for.</span></h1>
+<p>Tap any plan to open its complete feature list, section by section.</p></div>
+<svg class="field" viewBox="0 0 360 260" role="img" aria-label="Three seedlings of increasing height representing the three plans">
+<line class="soil" x1="10" y1="230" x2="350" y2="230"/>
+<path class="stem" d="M70 230 C70 200 72 180 70 150"/><path class="stem s2" d="M180 230 C180 180 184 130 180 90"/><path class="stem s3" d="M290 230 C290 160 296 90 290 28"/>
+<path class="leaf l1" d="M70 190 C40 185 36 165 44 158 C62 160 70 175 70 190Z"/><path class="leaf l2" d="M180 150 C214 146 220 124 210 116 C190 120 180 134 180 150Z"/><path class="leaf l3" d="M290 100 C256 96 250 72 262 62 C282 68 290 84 290 100Z"/>
+<circle class="bud b1" cx="70" cy="144" r="9"/><circle class="bud b2" cx="180" cy="84" r="10"/><circle class="bud b3" cx="290" cy="22" r="11"/>
+<text class="tag" x="70" y="250" text-anchor="middle">Fundamental</text><text class="tag" x="180" y="250" text-anchor="middle">Advanced</text><text class="tag" x="290" y="250" text-anchor="middle">Professional</text>
+</svg></div></header>
+
+<section style="background:var(--bg2)"><div class="wrap">
+<h2>Choose a plan to explore</h2>
+<p class="lead">Each level includes everything in the one before it. Prices are preliminary estimates and exclude GST.</p>
+<div class="tiers" id="tiers"></div></div></section>
+
+<section><div class="wrap">
+<h2>Plan comparison</h2>
+<p class="lead">See exactly where each level adds capability.</p>
+<div class="bar sans"><button class="sw" id="sw" aria-pressed="false" aria-label="Show only differences"></button><span>Show only differences</span></div>
+<div class="tw"><table><thead><tr><th>Feature</th><th>Fundamental</th><th>Advanced</th><th>Professional</th></tr></thead><tbody id="tb"></tbody></table></div></div></section>
+
+<section style="background:var(--bg2)"><div class="wrap cols">
+<div><h2>What can move the final price</h2><p class="lead">This is a preliminary estimate. These items get confirmed before the final quotation.</p><div class="chips" id="chips"></div></div>
+<div class="next"><h2 style="font-size:30px">Next step</h2>
+<p class="lead" style="margin-bottom:14px">Pick a preferred option and confirm the business workflow. CodePranetra then prepares:</p>
+<ul><li>Scope of Work and module-wise feature list</li><li>Development timeline and technology architecture</li><li>Payment milestones and final commercial quotation</li><li>Deployment and support plan</li></ul>
+<p style="color:var(--mute);font-size:15px;margin-top:16px">Third-party subscriptions, APIs, WhatsApp or SMS charges, payment gateway, hosting, domain and hardware costs are quoted separately unless included in the final Scope of Work.</p>
+<a class="cta" href="mailto:krishnakant@codepranetra.com?subject=Seeds%20%26%20Pesticides%20Software%20Proposal">Confirm your option</a></div></div></section>
+
+<footer><div class="wrap"><b>CodePranetra</b> | Where Business Meets Automation<br>codepranetra.com | krishnakant@codepranetra.com<br>Custom Software, Automation, AI Solutions, Business Management Systems</div></footer>
+
+<dialog id="dlg" aria-labelledby="dn"><div class="dh">
+<div class="dt"><div><h3 id="dn"></h3><div class="dp" id="dpr"></div></div><button class="x" id="cl" aria-label="Close">&times;</button></div>
+<div class="tabs" id="tabs" role="tablist"></div></div>
+<div class="db" id="db"></div></dialog>
+
+<script>
+var S=function(a){return a.split("|")};
+var P=[{k:"f",n:"Fundamental",pr:"₹5,00,000 to ₹6,50,000",st:"Digitize the business",
+intro:"Digitizes core day-to-day operations and brings inventory, purchases, sales, customers, vendors and payments into one centralized system.",
+who:"Businesses moving from manual registers, Excel files or basic billing software to a centralized digital system.",
+sec:[
+["Product and inventory management",S("Product master management|Product categories and sub-categories|Product code / SKU management|Unit management|Opening stock entry|Current stock availability|Product-wise stock tracking|Stock-in and stock-out records|Basic stock adjustment|Basic stock history")],
+["Purchase management",S("Purchase entry|Supplier / vendor management|Purchase invoice / reference entry|Purchase price recording|Purchase history|Automatic stock update after purchase|Supplier-wise purchase history")],
+["Sales management",S("Wholesale sales|Retail sales|Loose-item sales|Sales entry|Sales invoice / billing|Customer management|Sales history|Product-wise sales tracking|Payment mode tracking: Cash, UPI, Bank Transfer, Card, Credit / Udhaar")],
+["Customer and vendor management",S("Customer master|Vendor master|Contact information|Customer transaction history|Vendor transaction history|Customer outstanding balance|Vendor payment records")],
+["Credit / Udhaar management",S("Credit sales|Customer outstanding balance|Payment entry|Payment history|Customer-wise outstanding report")],
+["Returns and adjustments",S("Sales return|Purchase return|Basic stock adjustment|Damaged stock entry|Lost stock entry")],
+["Basic reports",S("Daily sales report|Monthly sales report|Purchase report|Current stock report|Customer outstanding report|Vendor report|Payment report|Basic profit / margin report")],
+["Dashboard",S("Total sales|Total purchases|Current stock|Outstanding customer payments|Recent transactions|Basic business summary")],
+["User management",S("User login|Staff accounts|Basic role-based access|User-wise transaction records")]]},
+{k:"a",n:"Advanced",pr:"₹7,50,000 to ₹9,50,000",st:"Digitize, control, monitor",pop:"Targets stock leakage",
+intro:"Includes all Fundamental features and adds detailed inventory control, batch management, alerts, accountability, advanced reporting and stronger controls against stock leakage.",
+base:"Everything in Fundamental is included. The sections below are the additions.",
+who:"Businesses that want detailed inventory control, batch tracking, alerts, staff accountability, stock leakage monitoring and management-level reporting.",
+sec:[
+["Advanced product and inventory",S("Batch-wise inventory tracking|Batch number management|Batch-wise quantity tracking|Batch-wise purchase price|Batch-wise selling price|Batch-wise expiry date|Multiple batches for the same product|Wholesale pricing|Retail pricing|Margin tracking|Profit tracking|Detailed stock movement history|Stock reconciliation|Damaged stock tracking|Expired stock tracking|Lost stock tracking|Stock adjustment history")],
+["Stock movement tracking: recorded against",S("Product|Batch|Quantity|Transaction type|User / staff|Date and time|Reference transaction")],
+["Advanced purchase management",S("Detailed purchase entry|Batch creation during purchase|Batch-wise purchase price|Supplier-wise purchase history|Purchase return management|Purchase-to-stock linkage|Purchase quantity tracking|Supplier outstanding tracking")],
+["Advanced sales management",S("Wholesale, retail and loose sales|Batch selection|Customer-specific pricing|Wholesale pricing|Retail pricing|Sales returns|Sales history|Invoice management|Payment tracking|Profit / margin calculation")],
+["Alerts: inventory",S("Low-stock alert|Critical-stock alert|Out-of-stock notification|Stock threshold alerts")],
+["Alerts: expiry",S("Upcoming expiry notification|Near-expiry stock alert|Expired stock notification|Batch-wise expiry monitoring")],
+["Alerts: payments",S("Outstanding payment notification|Overdue payment alert|Customer credit monitoring|Payment due reminders")],
+["Alerts: business notifications",S("Important stock adjustments|High-value transactions|Selected transaction alerts|User / staff activity notifications")],
+["Accountability and stock control",S("User-wise transaction tracking|Staff-wise sales tracking|Staff-wise stock activity|Stock adjustment history|Transaction creation history|Transaction modification history|Controlled transaction deletion|Role-based permissions|Manager / admin permissions|Audit trail|Stock movement history|Trace who did it, what changed, which product or batch, quantity, date and time")],
+["Reports: sales",S("Daily sales|Monthly sales|Product-wise sales|Customer-wise sales|Staff-wise sales|Wholesale sales|Retail sales|Loose sales")],
+["Reports: inventory",S("Current stock|Batch-wise stock|Expiring stock|Expired stock|Low-stock products|Stock movement|Stock adjustment|Damaged stock|Lost stock|Stock reconciliation")],
+["Reports: purchases",S("Daily purchases|Monthly purchases|Product-wise purchases|Supplier-wise purchases|Purchase history")],
+["Reports: financial",S("Customer outstanding|Vendor outstanding|Payment collection|Profit / margin|Purchase vs sales analysis")],
+["Advanced dashboard",S("Today's sales|Monthly sales|Today's purchases|Current inventory value|Low-stock products|Near-expiry products|Expired products|Outstanding customer payments|Payment collections|Profit / margin|Wholesale vs retail performance|Staff activity|Recent stock movements")]]},
+{k:"p",n:"Professional",pr:"₹10,50,000 to ₹14,00,000",st:"Digitize, control, monitor, automate, analyze",
+intro:"Includes everything in Advanced and adds business automation, intelligent monitoring, automated communication and AI-assisted analysis, to reduce repetitive manual work.",
+base:"Everything in Advanced is included: product, inventory, batch and purchase management, all sales types, billing, customers, vendors, Udhaar, returns, damaged and expired stock, reconciliation, users, permissions, audit trail, advanced reports, dashboard, alerts and notifications. The sections below are the additions.",
+who:"Businesses that want the system to monitor exceptions, automate follow-ups and answer management questions from live data.",
+sec:[
+["Automation: inventory monitoring",S("Automatic low-stock monitoring|Automatic expiry monitoring|Automatic batch monitoring|Automatic stock threshold checking|Automatic stock discrepancy alerts|Automated management notifications")],
+["Automation: payment monitoring",S("Automatic overdue payment detection|Automated payment reminders|Customer outstanding notifications|Payment follow-up workflows|Scheduled collection reports")],
+["Automation: reporting",S("Daily sales summary|Daily stock summary|Daily collection summary|Weekly business summary|Monthly business report|Low-stock report|Expiry report|Outstanding payment report|Profit / margin summary")],
+["Automated customer follow-up",S("Payment reminders|Outstanding balance notifications|Due-date reminders|Order-related notifications|Customer communication|Selected promotional or business notifications|WhatsApp, SMS or email considered separately, subject to integration and third-party charges")],
+["AI sales analysis",S("Fast-moving products|Slow-moving products|Product performance|Wholesale vs retail trends|Customer purchase patterns")],
+["AI inventory insights",S("Products with consistently low stock|Products approaching expiry|Slow-moving inventory|High-value inventory|Unusual stock movements|Potential stock discrepancies")],
+["AI business assistant",S("What were today's total sales?|Which products are currently low in stock?|Which products are expiring within the next 30 days?|Which customers have overdue payments?|What were our wholesale sales this month?|Which products generated the highest sales this month?|Show me the products with slow-moving stock.|How much is currently outstanding from customers?")],
+["Intelligent stock monitoring",S("Unusual stock adjustments|Frequent stock corrections|Unexpected quantity changes|Abnormal return activity|High-value stock movements|Repeated manual adjustments|Unusual staff transaction patterns|Notifications to authorized management users")],
+["Advanced management intelligence",S("Sales trends|Purchase trends|Inventory trends|Product performance|Customer performance|Profitability insights|Collection performance|Staff activity|Stock movement analysis|Automated business summaries")],
+["Future integration and extensibility",S("Barcode scanners|Thermal printers|WhatsApp API|SMS gateway|Email automation|Payment gateway|Accounting software|Multiple branches|Multiple warehouses|Mobile application|External reporting systems|Third-party APIs|Third-party subscription, API, messaging or hardware costs are separate unless included in the final quotation")]]}];
+P.forEach(function(p){p.c=p.sec.reduce(function(a,s){return a+s[1].length},0)});
+var T=document.getElementById("tiers");
+P.forEach(function(p,i){var a=document.createElement("article");a.className="tier"+(p.pop?" pop":"");a.tabIndex=0;
+a.innerHTML=(p.pop?'<span class="badge">'+p.pop+"</span>":"")+'<div class="stage">'+p.st+"</div><h3>"+p.n+'</h3><div class="price">'+p.pr+"<small>+ GST</small></div><p>"+p.intro+'</p><div class="cnt">'+p.sec.length+" sections, "+p.c+' items'+(p.base?" added":"")+'</div><button class="open">View full details</button>';
+a.onclick=function(){show(i)};a.onkeydown=function(e){if(e.key==="Enter")show(i)};T.appendChild(a)});
+var D=document.getElementById("dlg"),tabs=document.getElementById("tabs"),db=document.getElementById("db"),cur=0;
+P.forEach(function(p,i){var b=document.createElement("button");b.textContent=p.n;b.setAttribute("role","tab");b.onclick=function(){draw(i)};tabs.appendChild(b)});
+function draw(i){cur=i;var p=P[i];document.getElementById("dn").textContent=p.n;document.getElementById("dpr").textContent=p.pr+" + GST";
+[].forEach.call(tabs.children,function(b,j){b.setAttribute("aria-selected",j===i)});
+var h='<p class="note">'+(p.base||p.intro)+"</p>"+(p.base?'<p class="note">'+p.intro+"</p>":"")+'<div class="tl"><span>'+p.sec.length+' sections, '+p.c+' items</span><button id="ea">Expand all</button></div>';
+p.sec.forEach(function(s){h+='<details class="sec"><summary><span>'+s[0]+"</span><i>"+s[1].length+'</i></summary><div class="it">'+s[1].map(function(x){return"<span>"+x+"</span>"}).join("")+"</div></details>"});
+h+='<div class="suit"><b>Suitable for:</b> '+p.who+"</div>";db.innerHTML=h;db.scrollTop=0;
+var open=false;document.getElementById("ea").onclick=function(e){open=!open;e.target.textContent=open?"Collapse all":"Expand all";db.querySelectorAll("details").forEach(function(d){d.open=open})};
+db.querySelector("details").open=true}
+function show(i){draw(i);D.showModal();document.body.classList.add("lock")}
+document.getElementById("cl").onclick=function(){D.close()};
+D.addEventListener("close",function(){document.body.classList.remove("lock")});
+D.addEventListener("click",function(e){if(e.target===D)D.close()});
+var Y="Included",N="-",R=[["Product, inventory and purchase management",Y,Y,Y],["Wholesale, retail and loose sales",Y,Y,Y],["Billing and invoicing",Y,Y,Y],["Customer and vendor management",Y,Y,Y],["Credit / Udhaar",Y,Y,Y],["Returns",Y,Y,Y],["Batch tracking",N,Y,Y],["Expiry tracking","Basic","Advanced","Automated"],["Stock movement history","Basic","Detailed","Advanced"],["Profit and margin tracking","Basic","Advanced","Advanced"],["Low-stock alerts",N,Y,"Automated"],["Expiry alerts",N,Y,"Automated"],["Payment alerts",N,Y,"Automated"],["Staff tracking","Basic","Detailed","Advanced"],["Role-based permissions","Basic","Advanced","Advanced"],["Audit trail","Basic","Detailed","Advanced"],["Stock leakage monitoring",N,Y,"Automated"],["Stock reconciliation","Basic",Y,"Advanced"],["Advanced reports and dashboard",N,Y,Y],["Automated reports",N,"Limited",Y],["Automated payment follow-up",N,N,Y],["Notifications","Limited",Y,"Advanced"],["AI sales analysis and inventory insights",N,N,Y],["AI business assistant",N,N,Y],["Intelligent stock monitoring",N,N,Y],["Business automation",N,"Limited","Extensive"],["Future integrations","Limited",Y,Y]];
+var tb=document.getElementById("tb"),sw=document.getElementById("sw");
+function dt(){var d=sw.getAttribute("aria-pressed")==="true";tb.innerHTML="";R.forEach(function(r){if(d&&r[1]===r[2]&&r[2]===r[3])return;var tr=document.createElement("tr"),h="<td>"+r[0]+"</td>";for(var i=1;i<4;i++){var v=r[i];h+='<td class="'+(v===Y?"y":v===N?"n":"a")+'">'+v+"</td>"}tr.innerHTML=h;tb.appendChild(tr)})}
+sw.onclick=function(){sw.setAttribute("aria-pressed",sw.getAttribute("aria-pressed")==="true"?"false":"true");dt()};dt();
+S("Number of users|Branches|Warehouses|Inventory workflow|Unit conversions|Batch and expiry rules|GST and invoice needs|Barcode and printers|Accounting integration|WhatsApp, SMS, email|Data migration|Mobile app|Hosting and deployment|Custom reports").forEach(function(t){var s=document.createElement("span");s.textContent=t;document.getElementById("chips").appendChild(s)});
+</script>
+</body>
+</html>
